@@ -6,8 +6,6 @@ import proglab2.pokemons.*;
 public class Main {
     public static void main(String[] args) {
         Battle b = new Battle();
-
-        System.out.println((new Nidoqueen()).getHP());
         
         b.addAlly(new Suicune());
         b.addAlly(new Sunkern());
