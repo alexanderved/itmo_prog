@@ -1,0 +1,63 @@
+@startuml exceptions
+
+class AlreadyRunning extends RuntimeException {
+    - runner : Runner
+
+    + AlreadyRunning(runner : Runner)
+    + getRunner() : Runner
+    + getMessage() : String
+}
+
+class RunningNotStarted extends RuntimeException {
+    - runner : Runner
+
+    + RunningNotStarted(runner : Runner)
+    + getRunner() : Runner
+    + getMessage() : String
+}
+
+class NoChaseTarget extends RuntimeException {
+    - chaser : Chaser
+
+    + NoChaseTarget(chaser : Chaser)
+    + getChaser() : Chaser
+    + getMessage() : String
+}
+
+class TooManyChaseTargets extends RuntimeException {
+    - chaser : Chaser
+
+    + TooManyChaseTargets(chaser : Chaser)
+    + getChaser() : Chaser
+    + getMessage() : String
+}
+
+class BiteFailed extends Exception {
+    - biter : Biter
+    - bitable: Bitable
+
+    + BiteFailed(biter : Biter, bitable: Bitable)
+    + getBiter() : Biter
+    + getBitable() : Bitable
+    + getMessage() : String
+}
+
+class AlreadyBound extends RuntimeException {
+    - bindable : Bindable
+
+    + AlreadyBound(bindable : Bindable)
+    + getBindable() : Bindable
+    + getMessage() : String
+}
+
+class NotBound extends RuntimeException {
+    - binding : Binding
+    - bindable : Bindable
+
+    + NotBound(binding : Binding, bindable : Bindable)
+    + getBinding() : Binding
+    + getBindable() : Bindable
+    + getMessage() : String
+}
+
+@enduml

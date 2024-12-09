@@ -1,0 +1,55 @@
+@startuml interfaces
+
+hide interface attribute
+
+interface Binding {
+    + beBoundTo(bindable : Bindable)
+    + beUnboundFrom(bindable : Bindable)
+    + isBoundTo(bindable : Bindable) : boolean
+}
+
+interface Bindable {
+    + beBoundWith(binding : Binding)
+    + beUnbound()
+    + getBinding() : Binding
+    + isBound() : boolean
+}
+
+interface Binder {
+    + bind(binding : Binding, bindable : Bindable)
+    + unbind(bindable : Bindable)
+}
+
+interface Runner {
+    + startRunning()
+    + stopRunning()
+    + runOn(runnable : Runnable)
+}
+
+interface Runnable {
+    + beRunOnBy(runner: Runner)
+}
+
+interface Chaser {
+    + chase(runner : Runner)
+    + unchase()
+}
+
+interface Attacker {
+    + getAttackAccuracy() : int
+}
+
+interface Dodger {
+    + getDodgeability() : int
+    + canDodge(attacker : Attacker) : boolean
+}
+
+interface Biter extends Attacker {
+    + tryBite(bitable : Bitable)
+}
+
+interface Bitable {
+    + beBittenBy(biter : Biter)
+}
+
+@enduml

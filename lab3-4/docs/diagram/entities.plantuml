@@ -1,0 +1,52 @@
+@startuml entities
+
+abstract class Entity extends SceneObject implements Runner {
+    # isRunning : boolean
+    -- Runner --
+    + startRunning()
+    + stopRunning()
+    + runOn(runnable : Runnable)
+}
+
+class Person extends Entity implements Dodger, Bitable, Binder {
+    - DODGEABILITY : int
+    --
+    + Person(name : NounWithCases, dodgeability : int)
+    + getDescription() : NounWithCases
+    -- Runner --
+    + startRunning()
+    + stopRunning()
+    -- Dodger --
+    + getDodgeability() : int
+    + canDodge(attacker : Attacker) : boolean
+    -- Bitable --
+    + beBittenBy(biter : Biter)
+    -- Binder --
+    + bind(binding : Binding, bindable : Bindable)
+    + unbind(bindable : Bindable)
+}
+
+class Dog extends Entity implements Chaser, Biter, Bindable {
+    - ACCURACY : int
+    - target : Runner
+    - binding : Binding
+    --
+    + Dog(name : NounWithCases, accuracy : int)
+    + getDescription() : NounWithCases
+    -- Runner --
+    + startRunning()
+    + stopRunning()
+    -- Chaser --
+    + chase(runner : Runner)
+    + unchase()
+    -- Biter --
+    + getAttackAccuracy() : int
+    + tryBite(bitable : Bitable)
+    -- Bindable --
+    + beBoundWith(binding : Binding)
+    + beUnbound()
+    + getBinding() : Binding
+    + isBound() : boolean
+}
+
+@enduml

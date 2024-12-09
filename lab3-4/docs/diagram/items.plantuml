@@ -1,0 +1,17 @@
+@startuml items
+
+abstract class Item extends SceneObject {
+
+}
+
+class Chain extends Item implements Binding {
+    - binded : ArrayList<Bindable>
+    --
+    + getDescription() : NounWithCases
+    -- Binding --
+    + beBoundTo(bindable : Bindable)
+    + beUnboundFrom(bindable : Bindable)
+    + isBoundTo(bindable : Bindable) : boolean
+}
+
+@enduml
