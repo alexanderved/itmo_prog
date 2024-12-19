@@ -1,0 +1,37 @@
+@startuml utils
+
+class NounWithCases <<(R,#ADD1B2) record>> {
+    nominative : String
+    genitive : String
+    dative : String
+    accusative : String
+    instrumental : String
+    prepositional : String
+
+    + NounWithCases()
+    + NounWithCases(s : String)
+    + {static} fromArray(arr : String[]) : NounWithCases
+    + toArray() : String[]
+    + concat(s : String) : NounWithCases
+    + concat(noun : NounWithCases) : NounWithCases
+    + capitalize() : NounWithCases
+
+}
+
+enum FlowerType {
+    DAISY
+    CHAMOMILE
+    PANSY
+    TULIP
+    --
+    - name : NounWithCases
+    --
+    - FlowerType(name : NounWithCases)
+    + getName() : NounWithCases
+}
+
+abstract class SceneObject {
+    + {abstract} getDescription() : NounWithCases
+}
+
+@enduml

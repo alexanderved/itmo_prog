@@ -1,0 +1,20 @@
+@startuml places
+
+abstract class Place extends SceneObject {
+
+}
+
+class House extends Place {
+    + getDescription() : NounWithCases
+}
+
+class FlowerGarden extends Place implements Runnable {
+    - flowerTypes : FlowerType[]
+    --
+    + FlowerGarden(nearPlace : Place, flowerTypes : FlowerType[])
+    + getDescription() : NounWithCases
+    -- Runnable --
+    + beRunOnBy(runner: Runner)
+}
+
+@enduml

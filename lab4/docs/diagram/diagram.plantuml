@@ -1,0 +1,10 @@
+@startuml diagram
+
+!include interfaces.plantuml
+!include entities.plantuml
+!include items.plantuml
+!include utils.plantuml
+!include places.plantuml
+!include exceptions.plantuml
+
+@enduml
